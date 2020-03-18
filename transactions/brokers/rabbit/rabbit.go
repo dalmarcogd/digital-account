@@ -32,19 +32,24 @@ func (r rabbit) Publish(event events.Event) error {
 		return err
 	}
 
-	exchangeName := fmt.Sprintf("%v.master", event.GetName())
-
-	err = channel.ExchangeDeclare(exchangeName, amqp.ExchangeFanout, true, false, false, false, nil)
-	if err != nil {
-		return err
-	}
-
 	body, err := utils.NewJsonConverter().Encode(event)
 	if err != nil {
 		return err
 	}
 
-	return channel.Publish(exchangeName, event.GetChannel(), false, false, amqp.Publishing{
+	queue, err := channel.QueueDeclare(
+		"transactions-persist",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		return err
+	}
+
+	return channel.Publish("", queue.Name, false, false, amqp.Publishing{
 		DeliveryMode: amqp.Persistent,
 		Body:         body,
 	})

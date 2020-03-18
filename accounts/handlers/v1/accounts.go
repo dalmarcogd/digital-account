@@ -27,6 +27,10 @@ func AccountsCreateV1Handler(c echo.Context) error {
 		return err
 	}
 
+	if err := c.Validate(accountRequest); err != nil {
+		return err
+	}
+
 	uid, _ := uuid.NewUUID()
 	event := events.NewAccountCreateEvent(uid.String(), accountRequest.DocumentNumber)
 

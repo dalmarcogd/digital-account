@@ -1,0 +1,49 @@
+version: '3'
+
+volumes:
+     pgdata1:
+
+services:
+  accounts:
+    build:
+      context: ./accounts
+      dockerfile: Dockerfile
+    ports:
+     - "8000:8000"
+     
+  postgres:
+    container_name: postgres
+    image: postgres:alpine
+    expose:
+    - 5432
+    ports:
+    - 5432:5432
+    volumes:
+    - pgdata1:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: digital-account
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  rabbit:
+    image: "rabbitmq:3.7.23-management"
+    hostname: "rabbit"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "rabbitmq1"
+        
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis
+    ports:
+    - "6379:6379"
+   
+  

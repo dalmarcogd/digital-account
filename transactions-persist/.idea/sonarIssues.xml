@@ -3,32 +3,32 @@
   <component name="issues">
     <option name="index">
       <map>
-        <entry key="$PROJECT_DIR$/accounts/Dockerfile">
+        <entry key="$PROJECT_DIR$/../accounts/brokers/rabbit/rabbit.go">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/accounts/environments/environment.go">
+        <entry key="$PROJECT_DIR$/database/migrate.go">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/accounts/glide.yaml">
+        <entry key="$PROJECT_DIR$/database/models.go">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/accounts/main.go">
+        <entry key="$PROJECT_DIR$/database/queries.go">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/transactions-persist/glide.yaml">
+        <entry key="$PROJECT_DIR$/main.go">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/transactions/glide.yaml">
+        <entry key="$PROJECT_DIR$/../transactions/brokers/rabbit/rabbit.go">
           <value>
             <set />
           </value>

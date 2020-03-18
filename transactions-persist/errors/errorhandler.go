@@ -1,7 +1,7 @@
 package errors
 
 import (
-	"github.com/dalmarcogd/digital-account/accounts/utils"
+	"github.com/dalmarcogd/digital-account/transactions-persist/utils"
 	"github.com/labstack/echo"
 	"gopkg.in/go-playground/validator.v9"
 	"net/http"
