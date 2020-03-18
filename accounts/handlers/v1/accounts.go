@@ -5,6 +5,7 @@ import (
 	"github.com/dalmarcogd/digital-account/accounts/brokers/events"
 	"github.com/dalmarcogd/digital-account/accounts/brokers/rabbit"
 	"github.com/dalmarcogd/digital-account/accounts/cache"
+	"github.com/dalmarcogd/digital-account/accounts/database"
 	"github.com/dalmarcogd/digital-account/accounts/utils"
 	"github.com/google/uuid"
 	"github.com/labstack/echo"
@@ -57,8 +58,17 @@ func AccountsGetV1Handler(c echo.Context) error {
 
 	event := events.NewAccountCreateEvent("", "")
 
-	if err := utils.NewJsonConverter().Decode([]byte(data), event); err != nil {
-		return err
+	if data != nil {
+		if err := utils.NewJsonConverter().Decode(data, event); err != nil {
+			return err
+		}
+	} else {
+		account, err := database.GetAccountById(accountId)
+		if err != nil {
+			return err
+		}
+		event.AccountId = account.Id
+		event.DocumentNumber = account.DocumentNumber
 	}
 
 	accountResponse := new(AccountsCreateResponse)
