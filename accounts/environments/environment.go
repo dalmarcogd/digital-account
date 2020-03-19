@@ -12,7 +12,7 @@ var (
 )
 
 type Environment struct {
-	Port             string `cfg:"PORT" cfgDefault:"8001"`
+	Port             string `cfg:"PORT" cfgDefault:"8000"`
 	Environment      string `cfg:"ENVIRONMENT" cfgDefault:"transactions-dev"`
 	RabbitURL        string `cfg:"RABBIT_URL" cfgDefault:"rabbit"`
 	RabbitPort       string `cfg:"RABBIT_AMQP_PORT" cfgDefault:"5672"`
