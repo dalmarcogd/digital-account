@@ -20,3 +20,6 @@ Este projeto utiliza os seguintes bibliotecas.
 | ------ | ------ |
 | Echo | https://github.com/labstack/echo |
 | Gorm | https://github.com/jinzhu/gorm |
+
+
+[Download Collections Postman](../../raw/master/Digital Account.postman_collection.json)
