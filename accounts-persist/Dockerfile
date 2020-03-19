@@ -1,13 +1,13 @@
 FROM golang:alpine AS builder
 RUN apk --no-cache add build-base git glide
-WORKDIR /go/src/build
+WORKDIR /go/src/github.com/dalmarcogd/digital-account/accounts-persist
 ADD glide* ./
 RUN glide install
-ADD . ./
+ADD . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o app .
 
 FROM alpine
 WORKDIR /app
-COPY --from=builder /go/src/build/app /app/
+COPY --from=builder /go/src/github.com/dalmarcogd/digital-account/accounts-persist/app /app/
 EXPOSE 8000
 ENTRYPOINT ./app

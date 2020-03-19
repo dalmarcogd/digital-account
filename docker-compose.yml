@@ -10,7 +10,24 @@ services:
       dockerfile: Dockerfile
     ports:
      - "8000:8000"
-     
+
+  transactions:
+    build:
+      context: ./transactions
+      dockerfile: Dockerfile
+    ports:
+     - "8001:8001"
+
+  transactions-persist:
+    build:
+      context: ./transactions-persist
+      dockerfile: Dockerfile
+  
+  accounts-persist:
+    build:
+      context: ./accounts-persist
+      dockerfile: Dockerfile
+  
   postgres:
     container_name: postgres
     image: postgres:alpine

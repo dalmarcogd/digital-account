@@ -36,9 +36,6 @@ func main() {
 	)
 	failOnError(err, "Error when declare a queue")
 
-	err = channel.QueueBind(queue.Name, "*.*", "TransactionCreateEvent", false, nil)
-	failOnError(err, "Error when bind queue")
-
 	msgs, err := channel.Consume(queue.Name,
 		"",
 		true,

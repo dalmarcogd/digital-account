@@ -1,5 +1,5 @@
 hash: c77f8e1c15a683f759c9f000582a2a1e693786d3e0c6d2bb229a5a74e96afc35
-updated: 2020-03-18T16:54:38.4062309-03:00
+updated: 2020-03-19T08:22:47.4686791-03:00
 imports:
 - name: github.com/crgimenes/goconfig
   version: 6f3b0924f76d90922cda82ea5c2a1a5df59164a4
@@ -65,6 +65,8 @@ imports:
   version: cdfbe9377474227bb42120c1e22fd4433e7f69bf
 - name: github.com/valyala/fasttemplate
   version: f2edffee060be376160f92203356c93e83b01352
+- name: github.com/xuyu/goredis
+  version: 89fbe9474b3758ff3adf0b7b29c95aeed115fb7b
 - name: golang.org/x/crypto
   version: c9f3fb736b729628ec1e9c1a6b4313e883f452f9
   subpackages:

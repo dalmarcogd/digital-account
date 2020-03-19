@@ -1,6 +1,9 @@
 package database
 
-import "math"
+import (
+	"math"
+	"time"
+)
 
 func CreateTransaction(transactionId string, accountId string, operationTypeId int, amount float64) error {
 	transactionModel := TransactionModel{}
@@ -17,5 +20,6 @@ func CreateTransaction(transactionId string, accountId string, operationTypeId i
 		}
 	}
 	transactionModel.Amount =amount
+	transactionModel.EventDate = time.Now().UTC()
 	return GetConnection().Save(&transactionModel).Error
 }

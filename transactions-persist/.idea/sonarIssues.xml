@@ -3,7 +3,32 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/../accounts-persist/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts-persist/environments/environment.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../accounts/brokers/rabbit/rabbit.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts/environments/environment.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Dockerfile">
           <value>
             <set />
           </value>
@@ -23,12 +48,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/environments/environment.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/main.go">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../transactions/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../transactions/brokers/rabbit/rabbit.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../transactions/environments/environment.go">
           <value>
             <set />
           </value>
