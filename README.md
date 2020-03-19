@@ -45,4 +45,4 @@ Este projeto utiliza os seguintes bibliotecas.
 | Gorm | https://github.com/jinzhu/gorm |
 
 
-[Download Collections Postman](../../raw/master/Digital Account.postman_collection.json)
+[Download Collections Postman](https://github.com/dalmarcogd/digital-account/blob/master/Digital%20Account.postman_collection.json)
