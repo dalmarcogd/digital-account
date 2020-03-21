@@ -3,6 +3,8 @@ package v1
 import (
 	"github.com/dalmarcogd/digital-account/transactions/brokers/events"
 	"github.com/dalmarcogd/digital-account/transactions/brokers/rabbit"
+	"github.com/dalmarcogd/digital-account/transactions/errors"
+	"github.com/dalmarcogd/digital-account/transactions/services"
 	"github.com/google/uuid"
 	"github.com/labstack/echo"
 	"net/http"
@@ -32,6 +34,15 @@ func TransactionsCreateV1Handler(c echo.Context) error {
 
 	uid, _ := uuid.NewUUID()
 	event := events.NewTransactionCreateEvent(uid.String(), transactionRequest.AccountId, transactionRequest.OperationTypeId, transactionRequest.Amount)
+
+	availableCreditLimit, err := services.GetAvailableCreditLimitByAccount(transactionRequest.AccountId)
+	if err != nil {
+		return err
+	}
+
+	if (availableCreditLimit + event.Amount) < 0 {
+		return errors.NewError(http.StatusBadRequest, "Available credit limit insufficient", nil)
+	}
 
 	if err := rabbit.NewRabbit().Publish(event); err != nil {
 		return err

@@ -49,9 +49,9 @@ func main() {
 
 	go func() {
 		for d := range msgs {
-			accountEvent := events.NewAccountCreateEvent("", "")
+			accountEvent := events.NewAccountCreateEvent("", "", 0)
 			failOnError(utils.NewJsonConverter().Decode(d.Body, accountEvent), "Error when decode message")
-			failOnError(database.CreateAccount(accountEvent.AccountId, accountEvent.DocumentNumber), "Erro when save account")
+			failOnError(database.CreateAccount(accountEvent.AccountId, accountEvent.DocumentNumber, accountEvent.AvailableCreditLimit), "Erro when save account")
 			log.Printf("Account saved %s", accountEvent.AccountId)
 
 		}

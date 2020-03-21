@@ -3,7 +3,27 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/fragment.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../accounts-persist/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts-persist/brokers/events/account.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts-persist/database/models.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts-persist/database/queries.go">
           <value>
             <set />
           </value>
@@ -13,7 +33,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../accounts-persist/main.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../accounts/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts/brokers/events/account.go">
           <value>
             <set />
           </value>
@@ -23,7 +53,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../accounts/database/models.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../accounts/environments/environment.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../accounts/handlers/v1/accounts.go">
           <value>
             <set />
           </value>
@@ -63,12 +103,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../transactions/brokers/events/transaction.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../transactions/brokers/rabbit/rabbit.go">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../transactions/database/queries.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../transactions/environments/environment.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../transactions/handlers/v1/transactions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../transactions/services/accounts.go">
           <value>
             <set />
           </value>

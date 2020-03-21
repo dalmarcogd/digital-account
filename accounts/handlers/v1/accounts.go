@@ -12,13 +12,18 @@ import (
 	"net/http"
 )
 
+const DefaultAvailableCreditLimit = 5000
+
+
 type AccountsCreateRequest struct {
-	DocumentNumber string `json:"document_number" validate:"required"`
+	DocumentNumber       string  `json:"document_number" validate:"required"`
+	AvailableCreditLimit float64 `json:"available_credit_limit"`
 }
 
 type AccountsCreateResponse struct {
-	AccountId      string `json:"account_id" validate:"required"`
-	DocumentNumber string `json:"document_number" validate:"required"`
+	AccountId            string  `json:"account_id" validate:"required"`
+	DocumentNumber       string  `json:"document_number" validate:"required"`
+	AvailableCreditLimit float64 `json:"available_credit_limit" validate:"required"`
 }
 
 func AccountsCreateV1Handler(c echo.Context) error {
@@ -32,7 +37,10 @@ func AccountsCreateV1Handler(c echo.Context) error {
 	}
 
 	uid, _ := uuid.NewUUID()
-	event := events.NewAccountCreateEvent(uid.String(), accountRequest.DocumentNumber)
+	if accountRequest.AvailableCreditLimit == 0 {
+		accountRequest.AvailableCreditLimit = DefaultAvailableCreditLimit
+	}
+	event := events.NewAccountCreateEvent(uid.String(), accountRequest.DocumentNumber, accountRequest.AvailableCreditLimit)
 
 	data, err := utils.NewJsonConverter().Encode(event)
 	if err != nil {
@@ -49,6 +57,7 @@ func AccountsCreateV1Handler(c echo.Context) error {
 	accountResponse := new(AccountsCreateResponse)
 	accountResponse.AccountId = event.AccountId
 	accountResponse.DocumentNumber = event.DocumentNumber
+	accountResponse.AvailableCreditLimit = event.AvailableCreditLimit
 	return c.JSON(http.StatusOK, accountResponse)
 }
 
@@ -60,7 +69,7 @@ func AccountsGetV1Handler(c echo.Context) error {
 		return err
 	}
 
-	event := events.NewAccountCreateEvent("", "")
+	event := events.NewAccountCreateEvent("", "", 0)
 
 	if data != nil {
 		if err := utils.NewJsonConverter().Decode(data, event); err != nil {
@@ -73,10 +82,12 @@ func AccountsGetV1Handler(c echo.Context) error {
 		}
 		event.AccountId = account.Id
 		event.DocumentNumber = account.DocumentNumber
+		event.AvailableCreditLimit = account.AvailableCreditLimit
 	}
 
 	accountResponse := new(AccountsCreateResponse)
 	accountResponse.AccountId = event.AccountId
 	accountResponse.DocumentNumber = event.DocumentNumber
+	accountResponse.AvailableCreditLimit = event.AvailableCreditLimit
 	return c.JSON(http.StatusOK, accountResponse)
 }
